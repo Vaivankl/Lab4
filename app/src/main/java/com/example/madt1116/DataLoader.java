@@ -2,16 +2,18 @@ package com.example.madt1116;
 
 import android.os.AsyncTask;
 
+import java.io.InputStream;
 import java.io.PrintWriter;
 import java.io.StringWriter;
 import java.util.ArrayList;
 import java.util.List;
 
-public class DataLoader extends AsyncTask<String, Void, String> {
+public class DataLoader extends AsyncTask<String, Void, List<String>> {
 
-    protected String doInBackground(String... params) {
+    protected List<String> doInBackground(String... params) {
+        //InputStream stream = downloadUrl(Constants.ECB_URL);
         try {
-            return DataManager.getRateFromECB()
+            return DataManager.getRateFromECB();
         } catch (Exception e) {
             StringWriter sw = new StringWriter();
             e.printStackTrace(new PrintWriter(sw));

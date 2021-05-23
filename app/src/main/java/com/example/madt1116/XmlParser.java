@@ -32,7 +32,6 @@ public class XmlParser {
                 Element cube = (Element) rateNodes.item(i);
                 if(cube.hasAttribute("currency")){
                     String currencyName = cube.getAttribute("currency");
-                    if(currencyName.equals())
                     {
                         result = "Currency: "+ currencyName + " current rate is "+ cube.getAttribute("rate");
                         list.add(result);
