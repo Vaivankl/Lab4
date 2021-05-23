@@ -27,7 +27,7 @@ public class XmlParser {
                     String currencyName = cube.getAttribute("currency");
                     if(currencyName.equals(currencyCode))
                     {
-                        result = cube.getAttribute("rate");
+                        result = "Currency: "+ currencyName + " current rate is "+ cube.getAttribute("rate");
                         break;
                     }
                 }
