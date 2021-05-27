@@ -16,15 +16,14 @@ import javax.xml.parsers.DocumentBuilderFactory;
 import javax.xml.parsers.ParserConfigurationException;
 
 public class XmlParser {
-    public static String getRateFromECB(InputStream stream) throws IOException {
+    public static ArrayList<String> getAllRatesFromECB(InputStream stream) throws IOException {
         String result = "";
+        ArrayList<String> rateslist;
+        rateslist = new ArrayList<String>();
         try {
             DocumentBuilderFactory xmlDocFactory = DocumentBuilderFactory.newInstance();
             DocumentBuilder xmlDocBuilder = xmlDocFactory.newDocumentBuilder();
             Document doc = xmlDocBuilder.parse(stream);
-
-            List<String> list;
-            list = new ArrayList<String>();
 
 
             NodeList rateNodes = doc.getElementsByTagName(Constants.CUBE_NODE);
@@ -34,7 +33,7 @@ public class XmlParser {
                     String currencyName = cube.getAttribute("currency");
                     {
                         result = "Currency: "+ currencyName + " current rate is "+ cube.getAttribute("rate");
-                        list.add(result);
+                        rateslist.add(result);
                         break;
                     }
                 }
@@ -45,6 +44,6 @@ public class XmlParser {
             e.printStackTrace();
         }
 
-        return result;
+        return rateslist;
     }
 }
