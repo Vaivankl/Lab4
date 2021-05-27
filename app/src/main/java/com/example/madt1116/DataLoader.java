@@ -10,7 +10,7 @@ import java.util.List;
 
 public class DataLoader extends AsyncTask<String, Void, List<String>> {
 
-    protected List<String> doInBackground(String... params) {
+    protected ArrayList<String> doInBackground(String... params) {
         //InputStream stream = downloadUrl(Constants.ECB_URL);
         try {
             return DataManager.getRateFromECB();
@@ -19,7 +19,7 @@ public class DataLoader extends AsyncTask<String, Void, List<String>> {
             e.printStackTrace(new PrintWriter(sw));
 
 
-            List<String> datalist = new ArrayList<>(List.of(sw.toString() ));
+            ArrayList<String> datalist = new ArrayList<>(List.of(sw.toString() ));
 
 
             return datalist;
